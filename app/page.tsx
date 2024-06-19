@@ -1,6 +1,6 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import styles from '@/app/ui/home.module.css'
+import styles from '@/app/ui/home.module.css';
 import Link from 'next/link';
 import { lusitana } from './ui/fonts';
 import Image from 'next/image';
@@ -19,8 +19,7 @@ export default function Page() {
             <strong>Welcome to Acme.</strong> This is the example for the{' '}
             <a href="https://nextjs.org/learn/" className="text-blue-500">
               Next.js Learn Course
-            </a>
-            , brought to you by Vercel.
+            </a>, brought to you by Vercel.
           </p>
           <Link
             href="/login"
@@ -38,11 +37,12 @@ export default function Page() {
             className="hidden md:block"
             alt="Screenshots of the dashboard project showing desktop version"
           />
-          <Image 
+          <Image
             src="/hero-desktop.png"
             width={560}
             height={620}
-            alt="Khong co gi"  
+            className="md:hidden"
+            alt="Screenshots of the dashboard project showing mobile version"
           />
         </div>
       </div>
