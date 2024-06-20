@@ -9,6 +9,19 @@ export type User = {
   password: string;
 };
 
+export type Post = {
+  id: string;
+  title: string;
+  content: string;
+  created_at: string;
+  status: string;
+  author_name: string;
+  author_email: string;
+  image_url: string;
+};
+
+export type PostsTable = Post[];
+
 export type Customer = {
   id: string;
   name: string;

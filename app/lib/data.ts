@@ -6,10 +6,31 @@ import {
   InvoicesTable,
   LatestInvoiceRaw,
   User,
+  Post,
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
+
+export async function fetchPosts() {
+  noStore();
+
+  try {
+    // Artificially delay a response for demo purposes.
+    // Don't do this in production :)
+    console.log('Fetching post data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    const data = await sql<Post>`SELECT * FROM posts ORDER BY created_at DESC`;
+
+    console.log('Data fetch completed after 3 seconds.');
+
+    return data.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch post data.');
+  }
+}
 
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.

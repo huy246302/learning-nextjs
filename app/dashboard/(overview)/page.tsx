@@ -1,10 +1,11 @@
 import { Card } from '@/app/ui/dashboard/cards';
 import CardWrapper from '@/app/ui/dashboard/cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
+import PostsDashboard from '@/app/ui/dashboard/post-dashboard';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { lusitana } from '@/app/ui/fonts';
 import { Suspense } from 'react';
-import { RevenueChartSkeleton,LatestInvoicesSkeleton,CardsSkeleton } from '@/app/ui/skeletons';
+import { RevenueChartSkeleton,LatestInvoicesSkeleton,CardsSkeleton,PostsSkeleton } from '@/app/ui/skeletons';
 import { Metadata } from 'next';
  
 export default async function Page() {
@@ -29,6 +30,11 @@ export default async function Page() {
         </Suspense>
         <Suspense fallback={<CardsSkeleton />}>
           <CardWrapper />
+        </Suspense>
+      </div>
+      <div className="mt-6">
+        <Suspense fallback={<PostsSkeleton />}>
+          <PostsDashboard />
         </Suspense>
       </div>
     </main>
