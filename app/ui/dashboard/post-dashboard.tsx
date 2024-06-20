@@ -1,6 +1,7 @@
 import { fetchPosts } from '@/app/lib/data';
 import { Post } from '@/app/lib/definitions';
 import { lusitana } from '@/app/ui/fonts';
+import Image from 'next/image';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 
 export default async function PostsDashboard() {
@@ -19,9 +20,11 @@ export default async function PostsDashboard() {
         {posts.map((post) => (
           <div key={post.id} className="mb-4 rounded-md bg-white p-4 shadow-sm">
             <div className="flex items-center mb-2">
-              <img
+              <Image
                 src={post.image_url}
                 alt={post.author_name}
+                width={40}
+                height={40}
                 className="h-8 w-8 rounded-full"
               />
               <div className="ml-2">
